@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: iof-itss-service
+  labels:
+    app: iof-itss-service
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: iof-itss-service
+  template:
+    metadata:
+      labels:
+        app: iof-itss-service
+    spec:
+      containers:
+        - name: iof-itss-service-container
+          image: gcr.io/iofdoordev/iof-itss-service
+          ports:
+            - containerPort: 8081
